@@ -229,14 +229,7 @@ var zGallery = (function () {
 				//It's click by gallery icon
 				if (elementId != options.plugin.menuId) {
 					if (elementId === 'z-Gallery-slideshow') {
-						if (!slideshow.isActive) {
-							img.open(2);
-							slideshow('start');
-						}
-						else {
-
-							slideshow('stop');
-						}
+						slideshow();
 					}
 					else if (elementId === 'z-Gallery-fullscreen-icon') {
 						UI.fullscreenMode();
@@ -303,6 +296,9 @@ var zGallery = (function () {
 			}
 			else if (e.keyCode == 13) {
 				UI.fullscreenMode();
+			}
+			else if (e.keyCode == 32) {
+				slideshow();
 			}
 		},
 		mouse: function (e) {
@@ -383,7 +379,6 @@ var zGallery = (function () {
 				if (id == imagesLength) {
 					--id;
 
-					if (slideshow.isActive)
 					slideshow('stop');
 
 					return false;
@@ -396,7 +391,6 @@ var zGallery = (function () {
 				if (id < 0) {
 					++id;
 
-					if (slideshow.isActive)
 					slideshow('stop');
 
 					return false;
@@ -506,14 +500,25 @@ var zGallery = (function () {
 	}
 
 	
-	//@param {String} action - Action - start (stop) slideshow
+	//@param {optional String} action - What to do - start or (stop) slideshow?
 	slideshow =  function (action) {
-		var element = document.getElementById('z-Gallery-slideshow');
-		
+		var element = document.getElementById('z-Gallery-slideshow'),
+			action;
+
+		if (typeof action === 'undefined') {
+			slideshow.isActive ? action = 'stop' : action = 'start';
+		}
+
 		if (action == 'start') {
-			imageInterval = setInterval(function () {
+
+			setTimeout(function () {
 				img.open(2);
-			}, options.user[UI.activeEl].delay);
+
+				imageInterval = setInterval(function () {
+					img.open(2);
+				}, options.user[UI.activeEl].delay);
+			}, 150);
+
 			slideshow.isActive = true;
 		}
 		else if (action == 'stop') {
