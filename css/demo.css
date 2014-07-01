@@ -1,0 +1,32 @@
+a {
+	text-decoration: none;
+}
+
+p {
+	line-height: 8px;
+}
+
+#wrapper {
+	font-family: Arial, sans-serif;
+	width: 900px;
+	margin: auto;
+	font-size: 16px;
+}
+
+header {
+	font-size: 30px;
+	text-align: center;
+	padding: 1px 0px 10px 0px;
+	border-bottom: 1px solid #DCDCDC;
+}
+
+#content {
+	padding-bottom: 30px;
+	padding: 0px 5px 0px 5px;
+}
+
+
+footer {
+	padding-top: 10px;
+	border-top: 1px solid #DCDCDC;
+}
