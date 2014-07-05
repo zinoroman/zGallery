@@ -4,10 +4,6 @@ a {
 	text-decoration: none;
 }
 
-p {
-	line-height: 8px;
-}
-
 #wrapper {
 	font-family: 'Open Sans', sans-serif;
 	width: 900px;
@@ -18,7 +14,6 @@ p {
 header {
 	font-size: 30px;
 	text-align: center;
-	padding: 1px 0px 10px 0px;
 	border-bottom: 1px solid #DCDCDC;
 }
 
@@ -28,7 +23,6 @@ header {
 
 
 footer {
-
 	padding-top: 10px;
 	border-top: 1px solid #DCDCDC;
 }
